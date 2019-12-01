@@ -20,8 +20,9 @@ class PlayersController extends Controller
         $this->PlayersModel = new \App\Players;
         $this->HelperController = new HelperController();
     }
+
     /**
-     * Display a listing of the resource.
+     * Fetch and Store the data
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,14 +37,14 @@ class PlayersController extends Controller
         // Check if JSON or XML
         $result = $this->checkResponseFormat($content);
 
-        // Count the Players Data
+        // Store the data
         $store = $this->store($result);
 
         return response()->json($store);
     }
 
     /**
-     * [FunctionName description]
+     * Check if the response format is on JSON or XML
      * @param string $value [description]
      */
     public function checkResponseFormat($response)
@@ -64,7 +65,7 @@ class PlayersController extends Controller
     }
 
     /**
-     * [checkDataCount description]
+     * Check the data count
      * @param  [type] $data [description]
      * @return [type]       [description]
      */
